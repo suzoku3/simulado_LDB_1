@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulados LDB</title>
+<style>
+    body{font-family:Arial,sans-serif;background:#f0f4f8;padding:20px}
+    h1{text-align:center;color:#004080}
+    .btn{display:block;padding:10px 20px;margin:10px auto;background:#004080;color:#fff;text-align:center;border-radius:5px;cursor:pointer;max-width:300px}
+    .pergunta{background:#fff;padding:15px;margin:10px 0;border-left:5px solid #004080}
+    .opcao{display:block;margin:5px 0}
+    .resultado{background:#dff0d8;padding:15px;margin-top:20px;border-left:5px solid #3c763d}
+    .correta{color:green;font-weight:bold}
+    .errada{color:red}
+</style>
+</head>
+<body>
+
+<h1>Simulados LDB</h1>
+<div id="telaInicial"></div>
+<div id="telaSimulado" style="display:none"></div>
+
+<script>
+// Aqui você insere as perguntas e gabaritos extraídos do PDF
+const simulados = [
+  {
+    titulo: "Simulado LDB 1",
+    perguntas: [
+      { enunciado: "1. (Pergunta do Simulado 1)", opcoes: ["A", "B", "C", "D"] },
+      { enunciado: "2. (Pergunta do Simulado 1)", opcoes: ["A", "B", "C", "D"] },
+      // ... até 10 perguntas
+    ],
+    gabarito: ["a","b","c","d","a","b","c","d","a","b"]
+  },
+  {
+    titulo: "Simulado LDB 2",
+    perguntas: [
+      { enunciado: "1. (Pergunta do Simulado 2)", opcoes: ["A", "B", "C", "D"] },
+      // ...
+    ],
+    gabarito: ["b","c","a","d","b","a","d","c","b","a"]
+  }
+  // Adicione aqui Simulado 3, 4 e 5 no mesmo formato
+];
+
+let simAtual = 0;
+
+// Monta tela inicial
+function montarInicio(){
+  let html = "";
+  simulados.forEach((sim,idx)=>{
+    html += `<div class='btn' onclick='iniciarSimulado(${idx})'>${sim.titulo}</div>`;
+  });
+  document.getElementById('telaInicial').innerHTML = html;
+}
+montarInicio();
+
+// Inicia simulado selecionado
+function iniciarSimulado(idx){
+  simAtual = idx;
+  const sim = simulados[idx];
+  let html = `<h2>${sim.titulo}</h2><form id='formSim'>`;
+  sim.perguntas.forEach((q,i)=>{
+    html += `<div class='pergunta'><p><strong>${q.enunciado}</strong></p>`;
+    q.opcoes.forEach((opc,j)=>{
+      html += `<label class='opcao'><input type='radio' name='q${i}' value='${j}'> ${opc}</label>`;
+    });
+    html += `</div>`;
+  });
+  html += `</form><div class='btn' onclick='verNota()'>Ver sua nota</div>`;
+  document.getElementById('telaInicial').style.display='none';
+  document.getElementById('telaSimulado').style.display='block';
+  document.getElementById('telaSimulado').innerHTML = html;
+}
+
+// Calcula nota e mostra gabarito
+function verNota(){
+  const form = document.getElementById('formSim');
+  let acertos = 0;
+  let resultadoHTML = '';
+  const sim = simulados[simAtual];
+  sim.perguntas.forEach((q,i)=>{
+    const marcada = form[`q${i}`]?.value;
+    const correta = sim.gabarito[i].charCodeAt(0)-97; // 'a' = 0
+    if(marcada==correta){
+      acertos++;
+      resultadoHTML += `<p><strong>${q.enunciado}</strong><br><span class='correta'>✔ Você acertou! (${q.opcoes[correta]})</span></p>`;
+    }else{
+      resultadoHTML += `<p><strong>${q.enunciado}</strong><br><span class='errada'>✘ Você errou.</span> Resposta correta: <span class='correta'>${q.opcoes[correta]}</span></p>`;
+    }
+  });
+  let final = `<div class='resultado'><h3>Você acertou ${acertos} de ${sim.perguntas.length} questões.</h3>${resultadoHTML}</div>`;
+  final += `<div class='btn' onclick='voltarInicio()'>Voltar ao início</div>`;
+  final += `<div class='btn' onclick='proximoSimulado()'>Próximo Simulado</div>`;
+  document.getElementById('telaSimulado').innerHTML = `<h2>${sim.titulo} - Resultado</h2>` + final;
+}
+
+// Voltar à tela inicial
+function voltarInicio(){
+  document.getElementById('telaInicial').style.display='block';
+  document.getElementById('telaSimulado').style.display='none';
+}
+
+// Próximo simulado (cíclico)
+function proximoSimulado(){
+  let prox = simAtual+1;
+  if(prox>=simulados.length) prox=0;
+  iniciarSimulado(prox);
+}
+</script>
+</body>
+</html>
