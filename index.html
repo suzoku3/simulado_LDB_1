@@ -1,86 +1,479 @@
 <!DOCTYPE html>
 <html lang='pt-BR'>
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>Simulados LDB</title>
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width,initial-scale=1' />
+<title>Simulados LDB — Blumenau</title>
 <style>
-    body{font-family:Arial,sans-serif;background:#f0f4f8;padding:20px}
-    h1{text-align:center;color:#004080}
-    .btn{display:block;padding:10px 20px;margin:10px auto;background:#004080;color:#fff;text-align:center;border-radius:5px;cursor:pointer;max-width:300px}
-    .pergunta{background:#fff;padding:15px;margin:10px 0;border-left:5px solid #004080}
-    .opcao{display:block;margin:5px 0}
-    .resultado{background:#dff0d8;padding:15px;margin-top:20px;border-left:5px solid #3c763d}
-    .correta{color:green;font-weight:bold}
-    .errada{color:red}
+  body{font-family:Arial,Helvetica,sans-serif;background:#f0f4f8;color:#222;padding:20px}
+  h1{text-align:center;color:#004080}
+  #bank{display:none} /* local onde seu HTML ficará guardado */
+  .btn{display:inline-block;padding:10px 18px;margin:8px;border-radius:6px;background:#004080;color:#fff;text-decoration:none;cursor:pointer}
+  .area{max-width:900px;margin:20px auto}
+  .pergunta{background:#fff;padding:14px;margin:12px 0;border-left:6px solid #004080;border-radius:4px}
+  .opcao{display:block;margin:6px 0;cursor:pointer}
+  .resultado{background:#e9f9ee;border-left:6px solid #2e8b57;padding:14px;margin-top:18px}
+  .correta{color:green;font-weight:700}
+  .errada{color:red}
+  .actions{text-align:center;margin-top:18px}
+  .gabarito{background:#fff7e6;padding:12px;margin-top:10px;border-radius:6px;border:1px solid #f0dca6}
+  label.opcao input{margin-right:8px}
 </style>
 </head>
 <body>
+  <div class="area">
+    <h1>Simulados LDB</h1>
+    <div id="telaInicial"></div>
+    <div id="telaSimulado" style="display:none"></div>
+    <div id="resultadoArea"></div>
+  </div>
 
-<h1>Simulados LDB</h1>
-<div id="telaInicial"></div>
-<div id="telaSimulado" style="display:none"></div>
+  <!-- Aqui coloco exatamente o seu HTML com os <div class="simulado"> ... -->
+  <div id="bank">
+
+    
+    <div class="simulado">
+        <h2>Simulado 1</h2>
+        
+        <div class="pergunta">
+            1. De acordo com o Art. 1º da Lei nº 9.394/96, a educação abrange processos formativos que se desenvolvem em quais contextos?
+            <div class="opcao">a) Apenas em instituições de ensino e pesquisa.</div>
+            <div class="opcao">b) Na vida familiar, convivência humana, trabalho, instituições de ensino e pesquisa, movimentos sociais, organizações da sociedade civil e manifestações culturais.</div>
+            <div class="opcao">c) Exclusivamente no trabalho e nas instituições de ensino.</div>
+            <div class="opcao">d) Somente na convivência humana e nos movimentos sociais.</div>
+        </div>
+        
+        <div class="pergunta">
+            2. Qual é a finalidade da educação, segundo o Art. 2º da Lei nº 9.394/96?
+            <div class="opcao">a) Apenas o preparo para o trabalho.</div>
+            <div class="opcao">b) O pleno desenvolvimento do educando, seu preparo para o exercício da cidadania e sua qualificação para o trabalho.</div>
+            <div class="opcao">c) Exclusivamente a formação acadêmica.</div>
+            <div class="opcao">d) A liberdade de aprender e ensinar, sem outras finalidades.</div>
+        </div>
+        
+        <div class="pergunta">
+            3. Um dos princípios que o ensino deve ser ministrado, conforme o Art. 3º, inciso VI, é:
+            <div class="opcao">a) A cobrança de taxas em estabelecimentos públicos.</div>
+            <div class="opcao">b) A gratuidade do ensino público em estabelecimentos oficiais.</div>
+            <div class="opcao">c) A valorização da experiência escolar apenas.</div>
+            <div class="opcao">d) A gestão centralizada do ensino público.</div>
+        </div>
+        
+        <div class="pergunta">
+            4. O dever do Estado com a educação escolar pública será efetivado mediante a garantia de ensino fundamental obrigatório e gratuito, inclusive para quem? (Art. 4º, inciso I)
+            <div class="opcao">a) Apenas para crianças em idade escolar regular.</div>
+            <div class="opcao">b) Para aqueles que não tiveram acesso na idade própria.</div>
+            <div class="opcao">c) Somente para alunos com necessidades especiais.</div>
+            <div class="opcao">d) Exclusivamente para o ensino noturno.</div>
+        </div>
+        
+        <div class="pergunta">
+            5. Qual a idade a partir da qual é dever dos pais ou responsáveis efetuar a matrícula dos menores no ensino fundamental, segundo o Art. 6º?
+            <div class="opcao">a) A partir dos seis anos de idade.</div>
+            <div class="opcao">b) A partir dos sete anos de idade.</div>
+            <div class="opcao">c) A partir dos cinco anos de idade.</div>
+            <div class="opcao">d) A partir dos oito anos de idade.</div>
+        </div>
+        
+        <div class="pergunta">
+            6. Para que o ensino seja livre à iniciativa privada, uma das condições é: (Art. 7º, inciso II)
+            <div class="opcao">a) Não necessitar de autorização de funcionamento.</div>
+            <div class="opcao">b) Autorização de funcionamento e avaliação de qualidade pelo Poder Público.</div>
+            <div class="opcao">c) Isenção de cumprimento das normas gerais da educação nacional.</div>
+            <div class="opcao">d) Não ter capacidade de autofinanciamento.</div>
+        </div>
+        
+        <div class="pergunta">
+            7. Qual a principal incumbência da União em relação à política nacional de educação, conforme o Art. 8º, § 1º?
+            <div class="opcao">a) Apenas a organização dos sistemas de ensino estaduais.</div>
+            <div class="opcao">b) A coordenação da política nacional de educação, articulando os diferentes níveis e sistemas e exercendo função normativa, redistributiva e supletiva.</div>
+            <div class="opcao">c) Exclusivamente a manutenção de instituições de ensino superior.</div>
+            <div class="opcao">d) A fiscalização das instituições privadas de ensino.</div>
+        </div>
+        
+        <div class="pergunta">
+            8. De acordo com o Art. 9º, inciso IV, a União incumbir-se-á de estabelecer, em colaboração com os Estados, o Distrito Federal e os Municípios, competências e diretrizes para quais níveis de ensino?
+            <div class="opcao">a) Apenas para o ensino superior.</div>
+            <div class="opcao">b) Para a educação infantil, o ensino fundamental e o ensino médio.</div>
+            <div class="opcao">c) Somente para a educação de jovens e adultos.</div>
+            <div class="opcao">d) Exclusivamente para a educação profissional.</div>
+        </div>
+        
+        <div class="pergunta">
+            9. Qual a responsabilidade dos Estados em relação ao ensino fundamental, conforme o Art. 10, inciso VI?
+            <div class="opcao">a) Oferecer o ensino médio com prioridade.</div>
+            <div class="opcao">b) Assegurar o ensino fundamental e oferecer, com prioridade, o ensino médio.</div>
+            <div class="opcao">c) Apenas organizar os órgãos oficiais de ensino.</div>
+            <div class="opcao">d) Definir formas de colaboração com a União.</div>
+        </div>
+        
+        <div class="pergunta">
+            10. Segundo o Art. 11, inciso V, qual o nível de ensino que os Municípios devem oferecer com prioridade?
+            <div class="opcao">a) Ensino médio.</div>
+            <div class="opcao">b) Ensino superior.</div>
+            <div class="opcao">c) Educação infantil em creches e pré-escolas, e, com prioridade, o ensino fundamental.</div>
+            <div class="opcao">d) Educação profissional.</div>
+        </div>
+        
+        <div class="gabarito">
+            <div class="gabarito-title">Gabarito Simulado 1</div>
+            <div class="resposta-certa">1. b) Na vida familiar, convivência humana, trabalho, instituições de ensino e pesquisa, movimentos sociais, organizações da sociedade civil e manifestações culturais.</div>
+            <div class="resposta-certa">2. b) O pleno desenvolvimento do educando, seu preparo para o exercício da cidadania e sua qualificação para o trabalho.</div>
+            <div class="resposta-certa">3. b) A gratuidade do ensino público em estabelecimentos oficiais.</div>
+            <div class="resposta-certa">4. b) Para aqueles que não tiveram acesso na idade própria.</div>
+            <div class="resposta-certa">5. b) A partir dos sete anos de idade.</div>
+            <div class="resposta-certa">6. b) Autorização de funcionamento e avaliação de qualidade pelo Poder Público.</div>
+            <div class="resposta-certa">7. b) A coordenação da política nacional de educação, articulando os diferentes níveis e sistemas e exercendo função normativa, redistributiva e supletiva.</div>
+            <div class="resposta-certa">8. b) Para a educação infantil, o ensino fundamental e o ensino médio.</div>
+            <div class="resposta-certa">9. b) Assegurar o ensino fundamental e oferecer, com prioridade, o ensino médio.</div>
+            <div class="resposta-certa">10. c) Educação infantil em creches e pré-escolas, e, com prioridade, o ensino fundamental.</div>
+        </div>
+    </div>
+    
+    <div class="separator"></div>
+    
+    <div class="simulado">
+        <h2>Simulado 2</h2>
+        
+        <div class="pergunta">
+            1. Qual a carga horária mínima anual para a educação básica nos níveis fundamental e médio, de acordo com o Art. 24, inciso I?
+            <div class="opcao">a) Seiscentas horas, distribuídas por um mínimo de 180 dias.</div>
+            <div class="opcao">b) Oitocentas horas, distribuídas por um mínimo de duzentos dias de efetivo trabalho escolar.</div>
+            <div class="opcao">c) Mil horas, distribuídas por um mínimo de 220 dias.</div>
+            <div class="opcao">d) Setecentas e cinquenta horas, distribuídas por um mínimo de 190 dias.</div>
+        </div>
+        
+        <div class="pergunta">
+            2. No que diz respeito à verificação do rendimento escolar, o Art. 24, inciso V, alínea "a", estabelece que a avaliação deve ser:
+            <div class="opcao">a) Apenas quantitativa, com foco em provas finais.</div>
+            <div class="opcao">b) Contínua e cumulativa do desempenho do aluno, com prevalência dos aspectos qualitativos sobre os quantitativos.</div>
+            <div class="opcao">c) Realizada somente ao final do período letivo.</div>
+            <div class="opcao">d) Baseada exclusivamente na memorização de conteúdos.</div>
+        </div>
+        
+        <div class="pergunta">
+            3. Qual a frequência mínima exigida para aprovação na educação básica, conforme o Art. 24, inciso VI?
+            <div class="opcao">a) Sessenta por cento do total de horas letivas.</div>
+            <div class="opcao">b) Setenta por cento do total de horas letivas.</div>
+            <div class="opcao">c) Setenta e cinco por cento do total de horas letivas.</div>
+            <div class="opcao">d) Oitenta por cento do total de horas letivas.</div>
+        </div>
+        
+        <div class="pergunta">
+            4. Os currículos do ensino fundamental e médio devem ter uma base nacional comum, a ser complementada por uma parte diversificada. O que essa parte diversificada deve exigir? (Art. 26)
+            <div class="opcao">a) Apenas conteúdos de caráter universal.</div>
+            <div class="opcao">b) Características regionais e locais da sociedade, da cultura, da economia e da clientela.</div>
+            <div class="opcao">c) Exclusivamente o estudo de línguas estrangeiras.</div>
+            <div class="opcao">d) Somente o conhecimento do mundo físico e natural.</div>
+        </div>
+        
+        <div class="pergunta">
+            5. O ensino da arte constitui componente curricular obrigatório em quais níveis da educação básica? (Art. 26, § 2º)
+            <div class="opcao">a) Apenas no ensino médio.</div>
+            <div class="opcao">b) Nos diversos níveis da educação básica.</div>
+            <div class="opcao">c) Somente na educação infantil.</div>
+            <div class="opcao">d) Exclusivamente no ensino fundamental.</div>
+        </div>
+        
+        <div class="pergunta">
+            6. Qual a finalidade da educação infantil, de acordo com o Art. 29?
+            <div class="opcao">a) Apenas o desenvolvimento intelectual da criança.</div>
+            <div class="opcao">b) O desenvolvimento integral da criança até seis anos de idade, em seus aspectos físico, psicológico, intelectual e social.</div>
+            <div class="opcao">c) Exclusivamente a preparação para o ensino fundamental.</div>
+            <div class="opcao">d) A socialização da criança, sem foco em outros aspectos.</div>
+        </div>
+        
+        <div class="pergunta">
+            7. Em que locais a educação infantil será oferecida, conforme o Art. 30?
+            <div class="opcao">a) Apenas em escolas de ensino fundamental.</div>
+            <div class="opcao">b) Em creches, ou entidades equivalentes, para crianças de até três anos de idade; e pré-escolas, para as crianças de quatro a seis anos de idade.</div>
+            <div class="opcao">c) Somente em instituições de ensino superior.</div>
+            <div class="opcao">d) Exclusivamente em domicílio.</div>
+        </div>
+        
+        <div class="pergunta">
+            8. Qual o objetivo do ensino fundamental, segundo o Art. 32?
+            <div class="opcao">a) Apenas o domínio da leitura e escrita.</div>
+            <div class="opcao">b) A formação básica do cidadão, mediante o desenvolvimento da capacidade de aprender, compreensão do ambiente, aquisição de conhecimentos e habilidades, e fortalecimento dos vínculos sociais.</div>
+            <div class="opcao">c) Exclusivamente a preparação para o ensino médio.</div>
+            <div class="opcao">d) O desenvolvimento de habilidades artísticas e culturais.</div>
+        </div>
+        
+        <div class="pergunta">
+            9. O ensino religioso, de matrícula facultativa, constitui disciplina dos horários normais das escolas públicas de ensino fundamental. Como ele pode ser oferecido? (Art. 33)
+            <div class="opcao">a) Apenas em caráter confessional.</div>
+            <div class="opcao">b) Em caráter confessional ou interconfessional, sem ônus para os cofres públicos.</div>
+            <div class="opcao">c) Exclusivamente em caráter interconfessional.</div>
+            <div class="opcao">d) Com ônus para os cofres públicos, de acordo com a preferência dos alunos.</div>
+        </div>
+        
+        <div class="pergunta">
+            10. Qual a duração mínima do ensino médio, etapa final da educação básica, conforme o Art. 35?
+            <div class="opcao">a) Dois anos.</div>
+            <div class="opcao">b) Três anos.</div>
+            <div class="opcao">c) Quatro anos.</div>
+            <div class="opcao">d) Cinco anos.</div>
+        </div>
+        
+        <div class="gabarito">
+            <div class="gabarito-title">Gabarito Simulado 2</div>
+            <div class="resposta-certa">1. b) Oitocentas horas, distribuídas por um mínimo de duzentos dias de efetivo trabalho escolar.</div>
+            <div class="resposta-certa">2. b) Contínua e cumulativa do desempenho do aluno, com prevalência dos aspectos qualitativos sobre os quantitativos.</div>
+            <div class="resposta-certa">3. c) Setenta e cinco por cento do total de horas letivas.</div>
+            <div class="resposta-certa">4. b) Características regionais e locais da sociedade, da cultura, da economia e da clientela.</div>
+            <div class="resposta-certa">5. b) Nos diversos níveis da educação básica.</div>
+            <div class="resposta-certa">6. b) O desenvolvimento integral da criança até seis anos de idade, em seus aspectos físico, psicológico, intelectual e social.</div>
+            <div class="resposta-certa">7. b) Em creches, ou entidades equivalentes, para crianças de até três anos de idade; e pré-escolas, para as crianças de quatro a seis anos de idade.</div>
+            <div class="resposta-certa">8. b) A formação básica do cidadão, mediante o desenvolvimento da capacidade de aprender, compreensão do ambiente, aquisição de conhecimentos e habilidades, e fortalecimento dos vínculos sociais.</div>
+            <div class="resposta-certa">9. b) Em caráter confessional ou interconfessional, sem ônus para os cofres públicos.</div>
+            <div class="resposta-certa">10. b) Três anos.</div>
+        </div>
+    </div>
+    
+    <div class="separator"></div>
+    
+    <div class="simulado">
+        <h2>Simulado 3</h2>
+        
+        <div class="pergunta">
+            1. A educação de jovens e adultos (EJA) é destinada a quem, segundo o Art. 37?
+            <div class="opcao">a) Apenas a estudantes que concluíram o ensino médio.</div>
+            <div class="opcao">b) Àqueles que não tiveram acesso ou continuidade de estudos no ensino fundamental e médio na idade própria.</div>
+            <div class="opcao">c) Exclusivamente a trabalhadores em período noturno.</div>
+            <div class="opcao">d) Somente a alunos com necessidades especiais.</div>
+        </div>
+        
+        <div class="pergunta">
+            2. Em que níveis os exames supletivos para a EJA podem ser realizados, conforme o Art. 38, § 1º?
+            <div class="opcao">a) Apenas no nível de conclusão do ensino médio.</div>
+            <div class="opcao">b) No nível de conclusão do ensino fundamental (para maiores de quinze anos) e no nível de conclusão do ensino médio (para maiores de dezoito anos).</div>
+            <div class="opcao">c) Somente no nível de conclusão do ensino fundamental.</div>
+            <div class="opcao">d) Exclusivamente para alunos com menos de quinze anos.</div>
+        </div>
+        
+        <div class="pergunta">
+            3. Qual a finalidade da educação superior, de acordo com o Art. 43, inciso I?
+            <div class="opcao">a) Apenas a formação de profissionais.</div>
+            <div class="opcao">b) Estimular a criação cultural e o desenvolvimento do espírito científico e do pensamento reflexivo.</div>
+            <div class="opcao">c) Exclusivamente a pesquisa científica.</div>
+            <div class="opcao">d) Promover a extensão universitária.</div>
+        </div>
+        
+        <div class="pergunta">
+            4. Quais são os cursos e programas que a educação superior abrangerá, conforme o Art. 44?
+            <div class="opcao">a) Apenas cursos de graduação.</div>
+            <div class="opcao">b) Cursos sequenciais, de graduação, de pós-graduação e de extensão.</div>
+            <div class="opcao">c) Somente cursos de mestrado e doutorado.</div>
+            <div class="opcao">d) Exclusivamente cursos técnicos.</div>
+        </div>
+        
+        <div class="pergunta">
+            5. Qual o prazo mínimo de trabalho acadêmico efetivo no ano letivo regular da educação superior, excluído o tempo de exames finais? (Art. 47)
+            <div class="opcao">a) Cento e oitenta dias.</div>
+            <div class="opcao">b) Duzentos dias.</div>
+            <div class="opcao">c) Duzentos e vinte dias.</div>
+            <div class="opcao">d) Cento e noventa dias.</div>
+        </div>
+        
+        <div class="pergunta">
+            6. Os diplomas de cursos superiores reconhecidos, quando registrados, terão validade: (Art. 48)
+            <div class="opcao">a) Regional.</div>
+            <div class="opcao">b) Estadual.</div>
+            <div class="opcao">c) Nacional.</div>
+            <div class="opcao">d) Internacional.</div>
+        </div>
+        
+        <div class="pergunta">
+            7. As universidades são instituições pluridisciplinares que se caracterizam, entre outros aspectos, por ter qual proporção do corpo docente com titulação acadêmica de mestrado ou doutorado? (Art. 52, inciso II)
+            <div class="opcao">a) Um quarto.</div>
+            <div class="opcao">b) Um terço.</div>
+            <div class="opcao">c) Metade.</div>
+            <div class="opcao">d) Dois terços.</div>
+        </div>
+        
+        <div class="pergunta">
+            8. No exercício de sua autonomia, as universidades têm a atribuição de: (Art. 53, inciso VI)
+            <div class="opcao">a) Apenas fixar o número de vagas.</div>
+            <div class="opcao">b) Conferir graus, diplomas e outros títulos.</div>
+            <div class="opcao">c) Exclusivamente elaborar seus estatutos.</div>
+            <div class="opcao">d) Somente administrar seus rendimentos.</div>
+        </div>
+        
+        <div class="pergunta">
+            9. Como se entende a educação especial para os efeitos da Lei nº 9.394/96? (Art. 58)
+            <div class="opcao">a) Modalidade de educação escolar oferecida exclusivamente em escolas especializadas.</div>
+            <div class="opcao">b) Modalidade de educação escolar, oferecida preferencialmente na rede regular de ensino, para educandos portadores de necessidades especiais.</div>
+            <div class="opcao">c) Apenas o atendimento educacional para superdotados.</div>
+            <div class="opcao">d) Exclusivamente o ensino para crianças com deficiência física.</div>
+        </div>
+        
+        <div class="pergunta">
+            10. Qual a formação mínima admitida para o exercício do magistério na educação infantil e nas quatro primeiras séries do ensino fundamental, segundo o Art. 62?
+            <div class="opcao">a) Nível superior em qualquer área.</div>
+            <div class="opcao">b) Nível médio, na modalidade Normal.</div>
+            <div class="opcao">c) Apenas pós-graduação.</div>
+            <div class="opcao">d) Nível técnico em educação.</div>
+        </div>
+        
+        <div class="gabarito">
+            <div class="gabarito-title">Gabarito Simulado 3</div>
+            <div class="resposta-certa">1. b) Àqueles que não tiveram acesso ou continuidade de estudos no ensino fundamental e médio na idade própria.</div>
+            <div class="resposta-certa">2. b) No nível de conclusão do ensino fundamental (para maiores de quinze anos) e no nível de conclusão do ensino médio (para maiores de dezoito anos).</div>
+            <div class="resposta-certa">3. b) Estimular a criação cultural e o desenvolvimento do espírito científico e do pensamento reflexivo.</div>
+            <div class="resposta-certa">4. b) Cursos sequenciais, de graduação, de pós-graduação e de extensão.</div>
+            <div class="resposta-certa">5. b) Duzentos dias.</div>
+            <div class="resposta-certa">6. c) Nacional.</div>
+            <div class="resposta-certa">7. b) Um terço.</div>
+            <div class="resposta-certa">8. b) Conferir graus, diplomas e outros títulos.</div>
+            <div class="resposta-certa">9. b) Modalidade de educação escolar, oferecida preferencialmente na rede regular de ensino, para educandos portadores de necessidades especiais.</div>
+            <div class="resposta-certa">10. b) Nível médio, na modalidade Normal.</div>
+        </div>
+   
+  </div>
 
 <script>
-const simulados = [{'titulo': 'Simulado 1', 'perguntas': [{'enunciado': '1. De acordo com o Art. 1º da Lei nº 9.394/96, a educação abrange processos', 'opcoes': ['formativos que se desenvolvem em quais contextos? a) Apenas em instituições', 'de ensino e pesquisa. b) Na vida familiar, convivência humana, trabalho,', 'instituições de ensino e pesquisa, movimentos sociais, organizações da', 'sociedade civil e manifestações culturais. c) Exclusivamente no trabalho e nas', 'instituições de ensino. d) Somente na convivência humana e nos movimentos', 'sociais.']}, {'enunciado': '2. Qual é a finalidade da educação, segundo o Art. 2º da Lei nº 9.394/96? a)', 'opcoes': ['Apenas o preparo para o trabalho. b) O pleno desenvolvimento do educando, seu', 'preparo para o exercício da cidadania e sua qualificação para o trabalho. c)', 'Exclusivamente a formação acadêmica. d) A liberdade de aprender e ensinar,', 'sem outras finalidades.']}, {'enunciado': '3. Um dos princípios que o ensino deve ser ministrado, conforme o Art. 3º, inciso', 'opcoes': ['VI, é: a) A cobrança de taxas em estabelecimentos públicos. b) A gratuidade do', 'ensino público em estabelecimentos oficiais. c) A valorização da experiência', 'escolar apenas. d) A gestão centralizada do ensino público.']}, {'enunciado': '4. O dever do Estado com a educação escolar pública será efetivado mediante a', 'opcoes': ['garantia de ensino fundamental obrigatório e gratuito, inclusive para quem? (Art.', '4º, inciso I) a) Apenas para crianças em idade escolar regular. b) Para aqueles', 'que não tiveram acesso na idade própria. c) Somente para alunos com', 'necessidades especiais. d) Exclusivamente para o ensino noturno.']}, {'enunciado': '5. Qual a idade a partir da qual é dever dos pais ou responsáveis efetuar a matrícula', 'opcoes': ['dos menores no ensino fundamental, segundo o Art. 6º? a) A partir dos seis anos', 'de idade. b) A partir dos sete anos de idade. c) A partir dos cinco anos de idade.', 'd) A partir dos oito anos de idade.']}, {'enunciado': '6. Para que o ensino seja livre à iniciativa privada, uma das condições é: (Art. 7º,', 'opcoes': ['inciso II) a) Não necessitar de autorização de funcionamento. b) Autorização de', 'funcionamento e avaliação de qualidade pelo Poder Público. c) Isenção de', 'cumprimento das normas gerais da educação nacional. d) Não ter capacidade de', 'autofinanciamento.']}, {'enunciado': '7. Qual a principal incumbência da União em relação à política nacional de', 'opcoes': ['educação, conforme o Art. 8º, § 1º? a) Apenas a organização dos sistemas de', 'ensino estaduais. b) A coordenação da política nacional de educação, articulando', 'os diferentes níveis e sistemas e exercendo função normativa, redistributiva e', 'supletiva. c) Exclusivamente a manutenção de instituições de ensino superior. d)', 'A fiscalização das instituições privadas de ensino.']}, {'enunciado': '8. De acordo com o Art. 9º, inciso IV, a União incumbir-se-á de estabelecer, em', 'opcoes': ['colaboração com os Estados, o Distrito Federal e os Municípios, competências e', 'diretrizes para quais níveis de ensino? a) Apenas para o ensino superior. b) Para', 'a educação infantil, o ensino fundamental e o ensino médio. c) Somente para a', 'educação de jovens e adultos. d) Exclusivamente para a educação profissional.']}, {'enunciado': '9. Qual a responsabilidade dos Estados em relação ao ensino fundamental,', 'opcoes': ['conforme o Art. 10, inciso VI? a) Oferecer o ensino médio com prioridade. b)', 'Assegurar o ensino fundamental e oferecer, com prioridade, o ensino médio. c)', 'Apenas organizar os órgãos oficiais de ensino. d) Definir formas de colaboração', 'com a União.']}, {'enunciado': '10. Segundo o Art. 11, inciso V, qual o nível de ensino que os Municípios devem', 'opcoes': ['oferecer com prioridade? a) Ensino médio. b) Ensino superior. c) Educação', 'infantil em creches e pré-escolas, e, com prioridade, o ensino fundamental. d)', 'Educação profissional.']}, {'enunciado': '1. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '2. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '3. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '4. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '5. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '6. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '7. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '8. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '9. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '10. c)', 'opcoes': ['Simulado 2', 'Perguntas:']}, {'enunciado': '1. Qual a carga horária mínima anual para a educação básica nos níveis', 'opcoes': ['fundamental e médio, de acordo com o Art. 24, inciso I? a) Seiscentas horas,', 'distribuídas por um mínimo de 180 dias. b) Oitocentas horas, distribuídas por', 'um mínimo de duzentos dias de efetivo trabalho escolar. c) Mil horas,', 'distribuídas por um mínimo de 220 dias. d) Setecentas e cinquenta horas,', 'distribuídas por um mínimo de 190 dias.']}, {'enunciado': '2. No que diz respeito à verificação do rendimento escolar, o Art. 24, inciso V,', 'opcoes': ['alínea "a", estabelece que a avaliação deve ser: a) Apenas quantitativa, com foco', 'em provas finais. b) Contínua e cumulativa do desempenho do aluno, com', 'prevalência dos aspectos qualitativos sobre os quantitativos. c) Realizada', 'somente ao final do período letivo. d) Baseada exclusivamente na memorização', 'de conteúdos.']}, {'enunciado': '3. Qual a frequência mínima exigida para aprovação na educação básica, conforme', 'opcoes': ['o Art. 24, inciso VI? a) Sessenta por cento do total de horas letivas. b) Setenta', 'por cento do total de horas letivas. c) Setenta e cinco por cento do total de horas', 'letivas. d) Oitenta por cento do total de horas letivas.']}, {'enunciado': '4. Os currículos do ensino fundamental e médio devem ter uma base nacional', 'opcoes': ['comum, a ser complementada por uma parte diversificada. O que essa parte', 'diversificada deve exigir? (Art. 26) a) Apenas conteúdos de caráter universal. b)', 'Características regionais e locais da sociedade, da cultura, da economia e da', 'clientela. c) Exclusivamente o estudo de línguas estrangeiras. d) Somente o', 'conhecimento do mundo físico e natural.']}, {'enunciado': '5. O ensino da arte constitui componente curricular obrigatório em quais níveis da', 'opcoes': ['educação básica? (Art. 26, § 2º) a) Apenas no ensino médio. b) Nos diversos', 'níveis da educação básica. c) Somente na educação infantil. d) Exclusivamente', 'no ensino fundamental.']}, {'enunciado': '6. Qual a finalidade da educação infantil, de acordo com o Art. 29? a) Apenas o', 'opcoes': ['desenvolvimento intelectual da criança. b) O desenvolvimento integral da', 'criança até seis anos de idade, em seus aspectos físico, psicológico, intelectual e', 'social. c) Exclusivamente a preparação para o ensino fundamental. d) A', 'socialização da criança, sem foco em outros aspectos.']}, {'enunciado': '7. Em que locais a educação infantil será oferecida, conforme o Art. 30? a) Apenas', 'opcoes': ['em escolas de ensino fundamental. b) Em creches, ou entidades equivalentes,', 'para crianças de até três anos de idade; e pré-escolas, para as crianças de quatro', 'a seis anos de idade. c) Somente em instituições de ensino superior. d)', 'Exclusivamente em domicílio.']}, {'enunciado': '8. Qual o objetivo do ensino fundamental, segundo o Art. 32? a) Apenas o domínio', 'opcoes': ['da leitura e escrita. b) A formação básica do cidadão, mediante o', 'desenvolvimento da capacidade de aprender, compreensão do ambiente,', 'aquisição de conhecimentos e habilidades, e fortalecimento dos vínculos sociais.', 'c) Exclusivamente a preparação para o ensino médio. d) O desenvolvimento de', 'habilidades artísticas e culturais.']}, {'enunciado': '9. O ensino religioso, de matrícula facultativa, constitui disciplina dos horários', 'opcoes': ['normais das escolas públicas de ensino fundamental. Como ele pode ser', 'oferecido? (Art. 33) a) Apenas em caráter confessional. b) Em caráter', 'confessional ou interconfessional, sem ônus para os cofres públicos. c)', 'Exclusivamente em caráter interconfessional. d) Com ônus para os cofres', 'públicos, de acordo com a preferência dos alunos.']}, {'enunciado': '10. Qual a duração mínima do ensino médio, etapa final da educação básica,', 'opcoes': ['conforme o Art. 35? a) Dois anos. b) Três anos. c) Quatro anos. d) Cinco anos.']}, {'enunciado': '1. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '2. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '3. c)', 'opcoes': ['\uf0b7']}, {'enunciado': '4. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '5. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '6. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '7. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '8. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '9. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '10. b)', 'opcoes': ['Simulado 3', 'Perguntas:']}, {'enunciado': '1. A educação de jovens e adultos (EJA) é destinada a quem, segundo o Art. 37? a)', 'opcoes': ['Apenas a estudantes que concluíram o ensino médio. b) Àqueles que não', 'tiveram acesso ou continuidade de estudos no ensino fundamental e médio na', 'idade própria. c) Exclusivamente a trabalhadores em período noturno. d)', 'Somente a alunos com necessidades especiais.']}, {'enunciado': '2. Em que níveis os exames supletivos para a EJA podem ser realizados, conforme', 'opcoes': ['o Art. 38, § 1º? a) Apenas no nível de conclusão do ensino médio. b) No nível de', 'conclusão do ensino fundamental (para maiores de quinze anos) e no nível de', 'conclusão do ensino médio (para maiores de dezoito anos). c) Somente no nível', 'de conclusão do ensino fundamental. d) Exclusivamente para alunos com menos', 'de quinze anos.']}, {'enunciado': '3. Qual a finalidade da educação superior, de acordo com o Art. 43, inciso I? a)', 'opcoes': ['Apenas a formação de profissionais. b) Estimular a criação cultural e o', 'desenvolvimento do espírito científico e do pensamento reflexivo. c)', 'Exclusivamente a pesquisa científica. d) Promover a extensão universitária.']}, {'enunciado': '4. Quais são os cursos e programas que a educação superior abrangerá, conforme o', 'opcoes': ['Art. 44? a) Apenas cursos de graduação. b) Cursos sequenciais, de graduação, de']}, {'enunciado': '5. Qual o prazo mínimo de trabalho acadêmico efetivo no ano letivo regular da', 'opcoes': ['educação superior, excluído o tempo de exames finais? (Art. 47) a) Cento e', 'oitenta dias. b) Duzentos dias. c) Duzentos e vinte dias. d) Cento e noventa dias.']}, {'enunciado': '6. Os diplomas de cursos superiores reconhecidos, quando registrados, terão', 'opcoes': ['validade: (Art. 48) a) Regional. b) Estadual. c) Nacional. d) Internacional.']}, {'enunciado': '7. As universidades são instituições pluridisciplinares que se caracterizam, entre', 'opcoes': ['outros aspectos, por ter qual proporção do corpo docente com titulação', 'acadêmica de mestrado ou doutorado? (Art. 52, inciso II) a) Um quarto. b) Um', 'terço. c) Metade. d) Dois terços.']}, {'enunciado': '8. No exercício de sua autonomia, as universidades têm a atribuição de: (Art. 53,', 'opcoes': ['inciso VI) a) Apenas fixar o número de vagas. b) Conferir graus, diplomas e', 'outros títulos. c) Exclusivamente elaborar seus estatutos. d) Somente administrar', 'seus rendimentos.']}, {'enunciado': '9. Como se entende a educação especial para os efeitos da Lei nº 9.394/96? (Art.', 'opcoes': ['58) a) Modalidade de educação escolar oferecida exclusivamente em escolas', 'especializadas. b) Modalidade de educação escolar, oferecida preferencialmente', 'na rede regular de ensino, para educandos portadores de necessidades especiais.', 'c) Apenas o atendimento educacional para superdotados. d) Exclusivamente o', 'ensino para crianças com deficiência física.']}, {'enunciado': '10. Qual a formação mínima admitida para o exercício do magistério na educação', 'opcoes': ['infantil e nas quatro primeiras séries do ensino fundamental, segundo o Art. 62?', 'a) Nível superior em qualquer área. b) Nível médio, na modalidade Normal. c)', 'Apenas pós-graduação. d) Nível técnico em educação.']}, {'enunciado': '1. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '2. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '3. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '4. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '5. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '6. c)', 'opcoes': ['\uf0b7']}, {'enunciado': '7. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '8. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '9. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '10. b)', 'opcoes': ['Simulado 4', 'Perguntas:']}, {'enunciado': '1. Quais são os fundamentos da formação de profissionais da educação, de acordo', 'opcoes': ['com o Art. 61? a) Apenas a capacitação em serviço. b) A associação entre', 'teorias e práticas, e o aproveitamento da formação e experiências anteriores. c)', 'Exclusivamente a experiência docente. d) Somente a titulação acadêmica.']}, {'enunciado': '2. A preparação para o exercício do magistério superior far-se-á em nível de pós-', 'opcoes': ['graduação, prioritariamente em quais programas? (Art. 66) a) Apenas em cursos', 'de especialização. b) Em programas de mestrado e doutorado. c) Somente em', 'cursos de aperfeiçoamento. d) Exclusivamente em cursos de graduação.']}, {'enunciado': '3. Um dos meios pelos quais os sistemas de ensino promoverão a valorização dos', 'opcoes': ['profissionais da educação é: (Art. 67, inciso I) a) Ingresso por indicação política.', 'b) Ingresso exclusivamente por concurso público de provas e títulos. c) Apenas a', 'progressão funcional baseada na antiguidade. d) A dispensa de aperfeiçoamento', 'profissional continuado.']}, {'enunciado': '4. Quais são os recursos públicos destinados à educação, conforme o Art. 68? a)', 'opcoes': ['Apenas a receita de impostos próprios. b) Receita de impostos próprios,', 'transferências constitucionais, salário-educação, outras contribuições sociais,', 'incentivos fiscais e outros recursos previstos em lei. c) Exclusivamente doações', 'de entidades privadas. d) Somente a receita de operações de crédito.']}, {'enunciado': '5. Qual o percentual mínimo da receita resultante de impostos que a União aplicará', 'opcoes': ['anualmente na manutenção e desenvolvimento do ensino público? (Art. 69) a)', 'Nunca menos de quinze por cento. b) Nunca menos de dezoito por cento. c)', 'Nunca menos de vinte por cento. d) Nunca menos de vinte e cinco por cento.']}, {'enunciado': '6. As despesas com remuneração e aperfeiçoamento do pessoal docente e demais', 'opcoes': ['profissionais da educação são consideradas como de: (Art. 70, inciso I) a)', 'Investimento em infraestrutura. b) Manutenção e desenvolvimento do ensino. c)', 'Assistência social. d) Pesquisa não vinculada ao ensino.']}, {'enunciado': '7. Qual das seguintes despesas NÃO constituirá despesa de manutenção e', 'opcoes': ['desenvolvimento do ensino, segundo o Art. 71, inciso IV? a) Aquisição de', 'material didático-escolar. b) Programas suplementares de alimentação,', 'assistência médico-odontológica, farmacêutica e psicológica, e outras formas de', 'assistência social. c) Uso e manutenção de bens e serviços vinculados ao ensino.', 'd) Levantamentos estatísticos visando ao aprimoramento da qualidade do', 'ensino.']}, {'enunciado': '8. A União, em colaboração com os Estados, o Distrito Federal e os Municípios,', 'opcoes': ['estabelecerá um padrão mínimo de oportunidades educacionais para o ensino', 'fundamental baseado em quê? (Art. 74) a) No número de professores por escola.']}, {'enunciado': '9. Os recursos públicos serão destinados às escolas públicas, mas podem ser', 'opcoes': ['dirigidos a escolas comunitárias, confessionais ou filantrópicas que comprovem', 'qual finalidade? (Art. 77, inciso I) a) Finalidade lucrativa. b) Finalidade não-', 'lucrativa e não distribuam resultados, dividendos, bonificações, participações ou', 'parcela de seu patrimônio. c) Apenas a prestação de contas ao Poder Público. d)', 'Apenas a aplicação de excedentes financeiros em outras áreas.']}, {'enunciado': '10. Qual o objetivo dos programas integrados de ensino e pesquisa que o Sistema de', 'opcoes': ['Ensino da União desenvolverá para os povos indígenas? (Art. 78, inciso I) a)', 'Apenas a assimilação da cultura nacional. b) Proporcionar aos índios a', 'recuperação de suas memórias históricas, a reafirmação de suas identidades', 'étnicas, e a valorização de suas línguas e ciências. c) Exclusivamente o ensino', 'da língua portuguesa. d) Somente o acesso a conhecimentos tecnológicos.']}, {'enunciado': '1. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '2. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '3. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '4. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '5. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '6. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '7. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '8. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '9. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '10. b)', 'opcoes': ['Simulado 5']}, {'enunciado': '1. O Poder Público incentivará o desenvolvimento e a veiculação de programas de', 'opcoes': ['ensino a distância em quais níveis e modalidades de ensino? (Art. 80) a) Apenas', 'no ensino superior. b) Em todos os níveis e modalidades de ensino, e de', 'educação continuada. c) Somente na educação básica. d) Exclusivamente na', 'educação profissional.']}, {'enunciado': '2. A educação a distância, organizada com abertura e regime especiais, será', 'opcoes': ['oferecida por quais instituições? (Art. 80, § 1º) a) Qualquer instituição de', 'ensino. b) Instituições especificamente credenciadas pela União. c) Apenas', 'instituições públicas. d) Somente instituições privadas.']}, {'enunciado': '3. É permitida a organização de cursos ou instituições de ensino experimentais,', 'opcoes': ['desde que: (Art. 81) a) Não obedeçam a nenhuma disposição legal. b)', 'Obedecidas as disposições desta Lei. c) Sejam aprovados por qualquer órgão. d)', 'Não tenham avaliação de qualidade.']}, {'enunciado': '4. O estágio realizado nas condições do Art. 82 não estabelece vínculo', 'opcoes': ['empregatício. O que o estagiário pode receber? (Art. 82, Parágrafo único) a)', 'Apenas salário integral. b) Bolsa de estágio, estar segurado contra acidentes e ter', 'a cobertura previdenciária. c) Somente benefícios sociais. d) Exclusivamente', 'vale-transporte.']}, {'enunciado': '5. Qualquer cidadão habilitado com a titulação própria poderá exigir a abertura de', 'opcoes': ['concurso público para cargo de docente de instituição pública de ensino que', 'estiver sendo ocupado por professor não concursado por mais de quantos anos?', '(Art. 85) a) Três anos. b) Quatro anos. c) Cinco anos. d) Seis anos.']}, {'enunciado': '6. As instituições de educação superior constituídas como universidades integrar-', 'opcoes': ['se-ão, também, em sua condição de instituições de pesquisa, a qual sistema?', '(Art. 86) a) Sistema Nacional de Saúde. b) Sistema Nacional de Ciência e', 'Tecnologia. c) Sistema Nacional de Cultura. d) Sistema Nacional de Esportes.']}, {'enunciado': '7. A Década da Educação, instituída pelo Art. 87, iniciou-se a partir de qual', 'opcoes': ['período? a) Um ano antes da publicação da Lei. b) Um ano a partir da', 'publicação da Lei. c) No mesmo dia da publicação da Lei. d) Dois anos após a', 'publicação da Lei.']}, {'enunciado': '8. Até o fim da Década da Educação, somente serão admitidos professores', 'opcoes': ['habilitados em qual nível ou formados por qual meio? (Art. 87, § 4º) a) Apenas', 'em nível médio. b) Em nível superior ou formados por treinamento em serviço.', 'c) Somente por experiência profissional. d) Exclusivamente por indicação.']}, {'enunciado': '9. As creches e pré-escolas existentes ou que venham a ser criadas deverão, no', 'opcoes': ['prazo de três anos a contar da publicação desta Lei, integrar-se a qual sistema?', '(Art. 89) a) Ao sistema de saúde. b) Ao respectivo sistema de ensino. c) Ao', 'sistema de assistência social. d) Ao sistema de cultura.']}, {'enunciado': '10. Quem resolverá as questões suscitadas na transição entre o regime anterior e o', 'opcoes': ['que se institui nesta Lei? (Art. 90) a) Apenas o Presidente da República. b) O', 'Congresso Nacional. c) O Conselho Nacional de Educação ou, mediante', 'delegação, os órgãos normativos dos sistemas de ensino. d) Os Ministérios da', 'Educação e da Fazenda.']}, {'enunciado': '1. b)', 'opcoes': []}, {'enunciado': '2. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '3. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '4. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '5. d)', 'opcoes': ['\uf0b7']}, {'enunciado': '6. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '7. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '8. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '9. b)', 'opcoes': ['\uf0b7']}, {'enunciado': '10. c)', 'opcoes': []}], 'gabarito': []}];
-
-let simAtual = 0;
+// Identifica os simulados que já existem no seu HTML (no #bank)
+const bankSims = Array.from(document.querySelectorAll('#bank .simulado'));
+let simAtualIndex = 0;
+let currentClone = null;
+let currentGabarito = [];
 
 function montarInicio(){
-  let html = "";
-  simulados.forEach((sim,idx)=>{
-    html += `<div class='btn' onclick='iniciarSimulado(${idx})'>${sim.titulo}</div>`;
+  const tela = document.getElementById('telaInicial');
+  tela.innerHTML = '';
+  bankSims.forEach((s, idx) => {
+    const title = s.querySelector('h2') ? s.querySelector('h2').textContent.trim() : `Simulado ${idx+1}`;
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = title;
+    btn.onclick = () => iniciarSimulado(idx);
+    tela.appendChild(btn);
   });
-  document.getElementById('telaInicial').innerHTML = html;
 }
 montarInicio();
 
 function iniciarSimulado(idx){
-  simAtual = idx;
-  const sim = simulados[idx];
-  let html = `<h2>${sim.titulo}</h2><form id='formSim'>`;
-  sim.perguntas.forEach((q,i)=>{
-    html += `<div class='pergunta'><p><strong>${q.enunciado}</strong></p>`;
-    q.opcoes.forEach((opc,j)=>{
-      html += `<label class='opcao'><input type='radio' name='q${i}' value='${j}'> ${opc}</label>`;
+  simAtualIndex = idx;
+  // limpar áreas
+  document.getElementById('resultadoArea').innerHTML = '';
+  const telaInicial = document.getElementById('telaInicial');
+  const telaSim = document.getElementById('telaSimulado');
+  telaInicial.style.display = 'none';
+  telaSim.style.display = 'block';
+  telaSim.innerHTML = '';
+
+  // clonar o simulado do banco para preservar exatamente o texto original
+  const src = bankSims[idx];
+  const clone = src.cloneNode(true);
+  currentClone = clone;
+
+  // extrair gabarito (letras) a partir das div.resposta-certa (se existir)
+  currentGabarito = [];
+  const gabEls = Array.from(src.querySelectorAll('.gabarito .resposta-certa'));
+  if(gabEls.length > 0){
+    gabEls.forEach(el => {
+      // busca '1. b)' - pega a letra entre o número e o parêntese
+      const m = el.textContent.match(/\d+\.\s*([a-dA-D])/);
+      if(m) currentGabarito.push(m[1].toLowerCase().charCodeAt(0)-97);
+      else currentGabarito.push(null);
     });
-    html += `</div>`;
+  }
+
+  // esconder o bloco de gabarito no clone (será mostrado somente após 'Ver sua nota')
+  const g = clone.querySelector('.gabarito');
+  if(g) g.style.display = 'none';
+
+  // para cada pergunta, transformar as <div class="opcao"> em <label class="opcao"><input type="radio"> ...</label>
+  const perguntas = Array.from(clone.querySelectorAll('.pergunta'));
+  perguntas.forEach((p, qi) => {
+    const opEls = Array.from(p.querySelectorAll('.opcao'));
+    opEls.forEach((opEl, oi) => {
+      const text = opEl.textContent.trim();
+      const label = document.createElement('label');
+      label.className = 'opcao';
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q' + qi;
+      input.value = String(oi);
+      label.appendChild(input);
+      // preservar o texto original (sem alterar)
+      label.appendChild(document.createTextNode(' ' + text));
+      opEl.replaceWith(label);
+    });
   });
-  html += `</form><div class='btn' onclick='verNota()'>Ver sua nota</div>`;
-  document.getElementById('telaInicial').style.display='none';
-  document.getElementById('telaSimulado').style.display='block';
-  document.getElementById('telaSimulado').innerHTML = html;
+
+  // inserir o clone na tela
+  telaSim.appendChild(clone);
+
+  // adicionar botões de ação abaixo do simulado
+  const actions = document.createElement('div');
+  actions.className = 'actions';
+  const verBtn = document.createElement('button');
+  verBtn.className = 'btn';
+  verBtn.textContent = 'Ver sua nota';
+  verBtn.onclick = verNota;
+  const voltarBtn = document.createElement('button');
+  voltarBtn.className = 'btn';
+  voltarBtn.textContent = 'Voltar ao início';
+  voltarBtn.onclick = voltarInicio;
+  const proxBtn = document.createElement('button');
+  proxBtn.className = 'btn';
+  proxBtn.textContent = 'Próximo Simulado';
+  proxBtn.onclick = proximoSimulado;
+  actions.appendChild(verBtn);
+  actions.appendChild(voltarBtn);
+  actions.appendChild(proxBtn);
+  telaSim.appendChild(actions);
 }
 
 function verNota(){
-  const form = document.getElementById('formSim');
+  if(!currentClone) return;
+  const perguntas = Array.from(currentClone.querySelectorAll('.pergunta'));
   let acertos = 0;
-  let resultadoHTML = '';
-  const sim = simulados[simAtual];
-  sim.perguntas.forEach((q,i)=>{
-    const marcada = form[`q${i}`]?.value;
-    const correta = sim.gabarito[i].charCodeAt(0)-97;
-    if(marcada==correta){
+  let detalhes = '';
+
+  perguntas.forEach((p, qi) => {
+    const checked = currentClone.querySelector('input[name="q' + qi + '"]:checked');
+    const marcada = checked ? Number(checked.value) : null;
+    const correta = currentGabarito[qi] !== undefined ? currentGabarito[qi] : null;
+    const opciones = Array.from(p.querySelectorAll('label.opcao')).map(l => l.textContent.trim());
+    const enunciadoEl = p.querySelector('strong');
+    const enunciado = enunciadoEl ? enunciadoEl.textContent : p.textContent.split('\n')[0];
+
+    if(correta !== null && marcada === correta){
       acertos++;
-      resultadoHTML += `<p><strong>${q.enunciado}</strong><br><span class='correta'>✔ Você acertou! (${q.opcoes[correta]})</span></p>`;
-    }else{
-      resultadoHTML += `<p><strong>${q.enunciado}</strong><br><span class='errada'>✘ Você errou.</span> Resposta correta: <span class='correta'>${q.opcoes[correta]}</span></p>`;
+      detalhes += `<p><strong>${enunciado}</strong><br><span class="correta">✔ Você acertou! &nbsp; (${opciones[correta]})</span></p>`;
+    } else {
+      const respCorreta = (correta !== null && opciones[correta]) ? opciones[correta] : '—';
+      detalhes += `<p><strong>${enunciado}</strong><br><span class="errada">✘ Você errou.</span> Resposta correta: <span class="correta">${respCorreta}</span></p>`;
     }
   });
-  let final = `<div class='resultado'><h3>Você acertou ${acertos} de ${sim.perguntas.length} questões.</h3>${resultadoHTML}</div>`;
-  final += `<div class='btn' onclick='voltarInicio()'>Voltar ao início</div>`;
-  final += `<div class='btn' onclick='proximoSimulado()'>Próximo Simulado</div>`;
-  document.getElementById('telaSimulado').innerHTML = `<h2>${sim.titulo} - Resultado</h2>` + final;
+
+  // mostrar gabarito original (se houver)
+  const gOriginal = currentClone.querySelector('.gabarito');
+  let gabaritoHTML = '';
+  if(gOriginal){
+    gOriginal.style.display = 'block';
+    gabaritoHTML = `<div class="gabarito"><h4>Gabarito (original)</h4>${gOriginal.innerHTML}</div>`;
+  }
+
+  const resultadoArea = document.getElementById('resultadoArea');
+  resultadoArea.innerHTML = `<div class="resultado"><h3>Você acertou ${acertos} de ${perguntas.length} questões.</h3>${detalhes}</div>` + gabaritoHTML;
+  // rolar para o resultado
+  resultadoArea.scrollIntoView({behavior:'smooth'});
 }
 
 function voltarInicio(){
-  document.getElementById('telaInicial').style.display='block';
-  document.getElementById('telaSimulado').style.display='none';
+  document.getElementById('telaSimulado').style.display = 'none';
+  document.getElementById('telaInicial').style.display = 'block';
+  document.getElementById('resultadoArea').innerHTML = '';
+  currentClone = null;
+  currentGabarito = [];
 }
 
 function proximoSimulado(){
-  let prox = simAtual+1;
-  if(prox>=simulados.length) prox=0;
+  let prox = simAtualIndex + 1;
+  if(prox >= bankSims.length) prox = 0;
   iniciarSimulado(prox);
 }
 </script>
